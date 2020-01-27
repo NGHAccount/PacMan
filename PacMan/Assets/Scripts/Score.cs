@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
@@ -11,22 +12,28 @@ public class Score : MonoBehaviour
 
     public Text ScoreText;
     public Text Livestext;
-    public Text gameOverText;
-    public Text winText;
+    //public Text gameOverText;
+    //public Text winText;
 
-    private bool gameOver;
+    private bool gameOver = false;
     private bool win = false;
+    private bool restart;
 
     private GameObject scoreholder;
+
+    public GameObject deathScreen;
+    public GameObject winScreen;
     
 
     void Awake(){
 
+        Time.timeScale = 1f;
+        score = 0;
+        lives = 4;
         scoreholder = GameObject.FindGameObjectWithTag("Holder");
-
-        DontDestroyOnLoad(this.scoreholder);
-
-        gameOver = false;
+        deathScreen = GameObject.FindGameObjectWithTag("LosePanel");
+        winScreen = GameObject.FindGameObjectWithTag("WinPanel");
+        //DontDestroyOnLoad(this.scoreholder);
         
 
     }
@@ -35,26 +42,40 @@ public class Score : MonoBehaviour
     void Start(){
 
         UpdateScore();
-
         UpdateLives();
 
-        gameOverText.text = "";
-        winText.text = "";
+        restart = false;
+
+        deathScreen.gameObject.SetActive(false);
+        winScreen.gameObject.SetActive(false);
 
     }
 
     
     void Update(){
-
-        if (Input.GetKey("escape"))
-            Application.Quit();
-
+        
         if (lives == 0){
 
+            deathScreen.gameObject.SetActive(true);
             GameOver();
+            restart = true;
 
         }
-        
+
+        if (restart)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("PacMan");
+                gameOver = false;
+                win = false;
+                restart = false;
+                Time.timeScale = 1f;
+
+            }
+
+        }
+
 
     }
 
@@ -67,9 +88,11 @@ public class Score : MonoBehaviour
 
         if (score >= 200){
 
-            winText.text = "You Win";
+            winScreen.gameObject.SetActive(true);
+            //winText.text = "You Win";
             gameOver = true;
             win = true;
+            restart = true;
             Time.timeScale = 0;
 
         }
@@ -80,7 +103,6 @@ public class Score : MonoBehaviour
 
         lives = lives - 1;
         Livestext.text = "Lives: " + lives;
-        
 
     }
 
@@ -88,7 +110,7 @@ public class Score : MonoBehaviour
 
         if (win == false){
 
-            gameOverText.text = "Game Over!";
+            //gameOverText.text = "Game Over!";
             Time.timeScale = 0;
 
         }

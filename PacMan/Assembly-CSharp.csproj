@@ -62,8 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Scripts\BliteMover.cs" />
+    <Compile Include="Assets\Scripts\Level2Controller.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu2.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerController2.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/GitHubRepos/PacMan/PacMan/PacMan/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

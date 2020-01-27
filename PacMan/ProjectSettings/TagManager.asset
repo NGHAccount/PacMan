@@ -9,6 +9,18 @@ TagManager:
   - RightTransport
   - Holder
   - Blite
+  - LosePanel
+  - WinPanel
+  - Holder2
+  - WinPanel2
+  - LosePanel2
+  - Blite2
+  - Player2
+  - Seed2
+  - RightTransport2
+  - LeftTransport2
+  - Canvas1
+  - Canvas2
   layers:
   - Default
   - TransparentFX
@@ -45,6 +57,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Buttons
+    uniqueID: 3887345703
     locked: 0
   - name: Seed
     uniqueID: 3787339547
