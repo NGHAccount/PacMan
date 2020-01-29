@@ -58,6 +58,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -113,6 +117,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -165,6 +173,10 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -333,7 +345,7 @@ ScriptsOnlyBuild:
     className: PauseMenu
   - hash:
       serializedVersion: 2
-      Hash: 470cd40f6fc5fd591be8231e88af5262
+      Hash: b7fea91699f55fb5d362442910badd66
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController2
@@ -387,7 +399,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: ce6364ac2710f5bd5115312040becb94
+      Hash: d2c034717249edc80d2f9bd9899750fa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -441,7 +453,7 @@ ScriptsOnlyBuild:
     className: MainMenu
   - hash:
       serializedVersion: 2
-      Hash: 36ca03cc334842ebb1585f005a2e0cc7
+      Hash: a090ed721d1acda581ad00d535d38c46
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Score
@@ -633,7 +645,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 36ca03cc334842ebb1585f005a2e0cc7
+      Hash: 8a99c181e02dddd1d904952524ed1f24
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Level2Controller
@@ -702,4 +714,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/PacMan.unity
   - Assets/Scenes/Level2.unity
-  playerPath: E:/GitHubRepos/PacMan/PacMan/PacMan/Builds/PacMan.exe
+  playerPath: E:/GitHubRepos/PacMan/PacMan/PacMan/Builds/Kodama-n.exe

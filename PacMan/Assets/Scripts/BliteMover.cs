@@ -5,24 +5,26 @@ using UnityEngine;
 public class BliteMover : MonoBehaviour
 {
 
+    //public PlayerController pCon;
+
     [SerializeField]
     public Transform[] wayPoints;
 
     [SerializeField]
-    float moveSpeed = 2f;
+    public float moveSpeed = 2f;
 
     int waypointIndex = 0;
 
     void Start()
     {
         transform.position = wayPoints[waypointIndex].transform.position;
-        Debug.Log("Start");
+        //Debug.Log("Start");
     }
 
     void Update()
     {
         Move();
-        Debug.Log("Move");
+        //Debug.Log("Move");
     }
 
     void Move()
@@ -30,18 +32,20 @@ public class BliteMover : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position,
                                                 wayPoints[waypointIndex].transform.position,
                                                 moveSpeed * Time.deltaTime);
-        Debug.Log("transform");
+        //Debug.Log("transform");
 
         if (transform.position == wayPoints[waypointIndex].transform.position)
         {
             waypointIndex += 1;
-            Debug.Log("plus 1");
+            //Debug.Log("plus 1");
         }
 
         if (waypointIndex == wayPoints.Length)
             waypointIndex = 0;
-        Debug.Log("index 0");
+        //Debug.Log("index 0");
     }
     
+
+
 
 }

@@ -21,6 +21,9 @@ TagManager:
   - LeftTransport2
   - Canvas1
   - Canvas2
+  - tree
+  - Menu1
+  - Menu2
   layers:
   - Default
   - TransparentFX
@@ -69,4 +72,7 @@ TagManager:
     locked: 0
   - name: Blite
     uniqueID: 1727396521
+    locked: 0
+  - name: Tree
+    uniqueID: 453494897
     locked: 0

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Score : MonoBehaviour
 {
 
-    public static int score = 0;
+    public static int score = -10;
     public static int lives = 4;
 
     public Text ScoreText;
@@ -18,22 +18,37 @@ public class Score : MonoBehaviour
     private bool gameOver = false;
     private bool win = false;
     private bool restart;
+    private bool isPlaying = false;
 
     private GameObject scoreholder;
 
     public GameObject deathScreen;
     public GameObject winScreen;
-    
+    public GameObject menu;
+    public AudioSource scoreSource;
+    public AudioSource levelSource;
+    public AudioClip loseMusicClip;
+    public AudioClip menuMusicClip;
+    public AudioClip levelMusicClip;
+
+
 
     void Awake(){
 
         Time.timeScale = 1f;
-        score = 0;
+        score = -10;
         lives = 4;
         scoreholder = GameObject.FindGameObjectWithTag("Holder");
         deathScreen = GameObject.FindGameObjectWithTag("LosePanel");
         winScreen = GameObject.FindGameObjectWithTag("WinPanel");
+        menu = GameObject.FindGameObjectWithTag("Menu1");
         //DontDestroyOnLoad(this.scoreholder);
+
+        //scoreSource = GetComponent<AudioSource>();
+        
+        levelSource.clip = levelMusicClip;
+        levelSource.Play();
+        levelSource.volume = 0.5f;
         
 
     }
@@ -49,6 +64,8 @@ public class Score : MonoBehaviour
         deathScreen.gameObject.SetActive(false);
         winScreen.gameObject.SetActive(false);
 
+        //DontDestroyOnLoad(this);
+
     }
 
     
@@ -59,18 +76,37 @@ public class Score : MonoBehaviour
             deathScreen.gameObject.SetActive(true);
             GameOver();
             restart = true;
+            scoreSource.clip = loseMusicClip;
+            scoreSource.PlayOneShot(loseMusicClip);
+            scoreSource.volume = 0.05f;
 
         }
 
-        if (restart)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
+        if (restart){
+
+            if (Input.GetKeyDown(KeyCode.R)){
                 SceneManager.LoadScene("PacMan");
                 gameOver = false;
                 win = false;
                 restart = false;
                 Time.timeScale = 1f;
+
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)){
+
+            isPlaying = !isPlaying;
+
+            if (isPlaying){
+
+                levelSource.Stop();
+
+            }
+            else{
+
+                levelSource.PlayOneShot(levelMusicClip);
 
             }
 
@@ -86,14 +122,16 @@ public class Score : MonoBehaviour
         ScoreText.text = "Score: " + score;
         //Debug.Log("Updating");
 
-        if (score >= 200){
+        if (score >= 2290){
 
-            winScreen.gameObject.SetActive(true);
+            //winScreen.gameObject.SetActive(true);
             //winText.text = "You Win";
-            gameOver = true;
-            win = true;
-            restart = true;
-            Time.timeScale = 0;
+            //gameOver = true;
+            //win = true;
+            //restart = true;
+            //Time.timeScale = 0;
+
+            SceneManager.LoadScene("Level2");
 
         }
 
@@ -114,6 +152,8 @@ public class Score : MonoBehaviour
             Time.timeScale = 0;
 
         }
+
+
         gameOver = true;
 
     }

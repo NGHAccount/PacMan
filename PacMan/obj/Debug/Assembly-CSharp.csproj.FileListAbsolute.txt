@@ -1,0 +1,2 @@
+E:\GitHubRepos\PacMan\PacMan\PacMan\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+E:\GitHubRepos\PacMan\PacMan\PacMan\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

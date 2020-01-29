@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour{
     
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
+    private AudioSource[] allAudioSources;
 
     private GameObject canvas;
 
@@ -16,6 +17,12 @@ public class PauseMenu : MonoBehaviour{
         pauseMenuUI.SetActive(false);
 
         canvas = GameObject.FindGameObjectWithTag("Canvas1");
+
+    }
+
+    void Awake(){
+
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
 
     }
 
@@ -29,7 +36,7 @@ public class PauseMenu : MonoBehaviour{
 
             }
             else{
-
+                StopAllAudio();
                 Pause();
 
             }
@@ -62,5 +69,13 @@ public class PauseMenu : MonoBehaviour{
         SceneManager.LoadScene("Menu");
         Debug.Log("loading");
 
+    }
+
+    public void StopAllAudio(){
+
+        foreach (AudioSource audioS in allAudioSources){
+            audioS.Stop();
+
+        }
     }
 }

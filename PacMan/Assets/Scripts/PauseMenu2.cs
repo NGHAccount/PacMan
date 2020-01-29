@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class PauseMenu2 : MonoBehaviour{
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
-    
+    private AudioSource[] allAudioSources2;
+
     private GameObject canvas2;
 
-    void Start()
-    {
+    void Start(){
 
         pauseMenuUI.SetActive(false);
         
@@ -18,21 +18,23 @@ public class PauseMenu2 : MonoBehaviour{
 
     }
 
-    void Update()
-    {
+    void Awake(){
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        allAudioSources2 = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
 
-            if (isPaused)
-            {
+    }
+
+    void Update(){
+
+        if (Input.GetKeyDown(KeyCode.Escape)){
+
+            if (isPaused){
 
                 Resume();
 
             }
-            else
-            {
-
+            else{
+                StopAllAudio2();
                 Pause();
 
             }
@@ -41,8 +43,7 @@ public class PauseMenu2 : MonoBehaviour{
 
     }
 
-    public void Resume()
-    {
+    public void Resume(){
 
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -51,8 +52,7 @@ public class PauseMenu2 : MonoBehaviour{
 
     }
 
-    void Pause()
-    {
+    void Pause(){
 
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -62,11 +62,18 @@ public class PauseMenu2 : MonoBehaviour{
 
     }
 
-    public void quitToMenu()
-    {
+    public void quitToMenu(){
 
         SceneManager.LoadScene("Menu");
         Debug.Log("loading");
 
+    }
+
+    public void StopAllAudio2(){
+
+        foreach (AudioSource audioS in allAudioSources2){
+            audioS.Stop();
+
+        }
     }
 }
