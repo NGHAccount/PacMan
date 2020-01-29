@@ -121,7 +121,19 @@ public class Level2Controller : MonoBehaviour
         ScoreText.text = "Score: " + newScore;
         //Debug.Log("Updating");
 
-        if (newScore >= 4340){
+        if(newScore == 2040){
+
+            winScreen.gameObject.SetActive(true);
+            //winText.text = "You Win";
+            GameOver();
+            gameOver = true;
+            win = true;
+            restart = true;
+            Time.timeScale = 0;
+            scoreSource2.clip = winMusicClip2;
+            scoreSource2.Play();
+
+        }else if (newScore >= 4340){
 
             winScreen.gameObject.SetActive(true);
             //winText.text = "You Win";
