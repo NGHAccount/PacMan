@@ -19,25 +19,18 @@ public class PlayerController : MonoBehaviour
     private static int newScore;
 
     public AudioSource playerSource;
-    //public AudioSource levelSource;
     public AudioSource pickupSource;
     public AudioClip pickupClip;
-    //public AudioClip levelMusicClip;
     public AudioClip playerHitClip;
     public AudioClip powerupClip;
     public AudioClip powerupMusicClip;
 
     public Score sHolder;
-    //private BliteMover bMover;
 
     Animator anim;
 
     void Awake(){
-        /*
-        levelSource.clip = levelMusicClip;
-        levelSource.Play();
-        levelSource.volume = 0.5f;
-        */
+        
     }
     
     void Start(){
@@ -48,7 +41,6 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
 
         sHolder.GetComponent<Score>();
-        //bMover.GetComponent<BliteMover>();
         playerSource = GetComponent<AudioSource>();
 
         poweringUp = false;
@@ -122,25 +114,7 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = Vector2.zero;
 
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Escape)){
-
-            isPlaying = !isPlaying;
-
-            if (isPlaying){
-
-                levelSource.Stop();
-
-            }
-            else{
-
-                levelSource.Play();
-
-            }
-
-        }
-        */
+        
 
     }
 
@@ -186,8 +160,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("tree")){
 
             other.gameObject.SetActive(false);
-            //Debug.Log("powering");
-            //rb2d.velocity *= 2;
             Score.lives = Score.lives + 2;
             sHolder.UpdateLives();
             pickupSource.clip = powerupClip;
@@ -196,13 +168,6 @@ public class PlayerController : MonoBehaviour
             
             
         }
-
-        /*if (sHolder.gameOver == true){
-
-            levelSource.clip = levelMusicClip;
-            levelSource.Stop();
-
-        }*/
 
     }
    

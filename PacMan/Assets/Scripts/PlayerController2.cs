@@ -13,13 +13,10 @@ public class PlayerController2 : MonoBehaviour
     private GameObject seed2;
     private GameObject blite2;
     private static int newScore2;
-    //private bool isPlaying = false;
     
     public AudioSource playerSource2;
-    //public AudioSource levelSource2;
     public AudioSource pickupSource2;
     public AudioClip pickupClip2;
-    //public AudioClip levelMusicClip2;
     public AudioClip playerHitClip2;
     public AudioClip powerupClip2;
     public AudioClip powerupMusicClip2;
@@ -43,18 +40,11 @@ public class PlayerController2 : MonoBehaviour
     }
 
     void Awake(){
-        /*
-        levelSource2.clip = levelMusicClip2;
-        levelSource2.Play();
-        levelSource2.volume = 0.3f;
-        */
+        
     }
 
     void FixedUpdate(){
-
-
-
-
+        
     }
 
 
@@ -117,25 +107,6 @@ public class PlayerController2 : MonoBehaviour
             rb2d2.velocity = Vector2.zero;
         
         }
-        
-        /*
-        if (Input.GetKeyDown(KeyCode.Escape)){
-
-            isPlaying = !isPlaying;
-
-            if (isPlaying){
-
-                levelSource2.Stop();
-
-            }
-            else{
-
-                levelSource2.Play();
-
-            }
-
-        }*/
-        
 
     }
 
@@ -181,8 +152,6 @@ public class PlayerController2 : MonoBehaviour
         if (other.gameObject.CompareTag("tree")){
 
             other.gameObject.SetActive(false);
-            //Debug.Log("powering");
-            //rb2d.velocity *= 2;
             Level2Controller.newLives = Level2Controller.newLives + 2;
             s2Holder.UpdateLives();
             pickupSource2.clip = powerupClip2;

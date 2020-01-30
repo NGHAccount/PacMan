@@ -12,8 +12,6 @@ public class Score : MonoBehaviour
 
     public Text ScoreText;
     public Text Livestext;
-    //public Text gameOverText;
-    //public Text winText;
 
     private bool gameOver = false;
     private bool win = false;
@@ -42,9 +40,6 @@ public class Score : MonoBehaviour
         deathScreen = GameObject.FindGameObjectWithTag("LosePanel");
         winScreen = GameObject.FindGameObjectWithTag("WinPanel");
         menu = GameObject.FindGameObjectWithTag("Menu1");
-        //DontDestroyOnLoad(this.scoreholder);
-
-        //scoreSource = GetComponent<AudioSource>();
         
         levelSource.clip = levelMusicClip;
         levelSource.Play();
@@ -63,8 +58,7 @@ public class Score : MonoBehaviour
 
         deathScreen.gameObject.SetActive(false);
         winScreen.gameObject.SetActive(false);
-
-        //DontDestroyOnLoad(this);
+        
 
     }
 
@@ -123,14 +117,7 @@ public class Score : MonoBehaviour
         //Debug.Log("Updating");
 
         if (score >= 2290){
-
-            //winScreen.gameObject.SetActive(true);
-            //winText.text = "You Win";
-            //gameOver = true;
-            //win = true;
-            //restart = true;
-            //Time.timeScale = 0;
-
+            
             SceneManager.LoadScene("Level2");
 
         }
@@ -147,8 +134,7 @@ public class Score : MonoBehaviour
     public void GameOver(){
 
         if (win == false){
-
-            //gameOverText.text = "Game Over!";
+            
             Time.timeScale = 0;
 
         }

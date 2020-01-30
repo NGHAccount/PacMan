@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Level2Controller : MonoBehaviour
 {
-    //public static int score = 0;
-    //public static int lives = 4;
     public static int newScore;
     public static int newLives;
-    //public static int newLives2;
 
     public Text ScoreText;
     public Text Livestext;
@@ -31,16 +28,11 @@ public class Level2Controller : MonoBehaviour
     public AudioClip winMusicClip2;
     public AudioClip levelMusicClip2;
 
-    //public Score messHolder;
-    //public PlayerController2 pCon2;
-
-
     void Awake(){
 
         Time.timeScale = 1f;
         newScore = Score.score;
         newLives = Score.lives + 1;
-        //newLives2 = newLives;
         scoreholder = GameObject.FindGameObjectWithTag("Holder2");
         deathScreen = GameObject.FindGameObjectWithTag("LosePanel2");
         winScreen = GameObject.FindGameObjectWithTag("WinPanel2");
@@ -62,11 +54,7 @@ public class Level2Controller : MonoBehaviour
 
         deathScreen.gameObject.SetActive(false);
         winScreen.gameObject.SetActive(false);
-
-        //messHolder.GetComponent<Score>();
-        //pCon2.GetComponent<PlayerController2>();
-
-
+        
     }
 
 
@@ -124,7 +112,6 @@ public class Level2Controller : MonoBehaviour
         if(newScore == 2040){
 
             winScreen.gameObject.SetActive(true);
-            //winText.text = "You Win";
             GameOver();
             gameOver = true;
             win = true;
@@ -136,7 +123,6 @@ public class Level2Controller : MonoBehaviour
         }else if (newScore >= 4340){
 
             winScreen.gameObject.SetActive(true);
-            //winText.text = "You Win";
             GameOver();
             gameOver = true;
             win = true;

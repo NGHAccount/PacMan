@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BliteMover : MonoBehaviour
 {
-
-    //public PlayerController pCon;
+    
 
     [SerializeField]
     public Transform[] wayPoints;
@@ -15,27 +14,23 @@ public class BliteMover : MonoBehaviour
 
     int waypointIndex = 0;
 
-    void Start()
-    {
+    void Start(){
         transform.position = wayPoints[waypointIndex].transform.position;
         //Debug.Log("Start");
     }
 
-    void Update()
-    {
+    void Update(){
         Move();
         //Debug.Log("Move");
     }
 
-    void Move()
-    {
+    void Move(){
         transform.position = Vector3.MoveTowards(transform.position,
                                                 wayPoints[waypointIndex].transform.position,
                                                 moveSpeed * Time.deltaTime);
         //Debug.Log("transform");
 
-        if (transform.position == wayPoints[waypointIndex].transform.position)
-        {
+        if (transform.position == wayPoints[waypointIndex].transform.position){
             waypointIndex += 1;
             //Debug.Log("plus 1");
         }
